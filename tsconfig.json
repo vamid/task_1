@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "preserve",
+      "baseUrl": "src",
+      "downlevelIteration": true
+    },
+    "include": [
+      "src",
+      "src/**/*",
+    ],
+    "exclude": [
+      "build",
+      "dist",
+      "scripts",
+      "webpack",
+    ]
+  }
+  
