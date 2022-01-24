@@ -1,14 +1,20 @@
-import './App.css';
-import Avatar from './components/Avatar';
+import './App.scss';
+import Header from 'components/Header';
+import { Grid } from "@mui/material"
 import avatarImg from "./assets/images/avatar.jpg"
 
 function App() {
   return (
     <>
-      <h1> hello world</h1>
-
-      <Avatar img={avatarImg} />
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+        </Grid>
+        <Grid item xs={9}>
+          <Header user={{ img: avatarImg, firstName: "Zelto", lastName: "Olinbekov" }} />
+        </Grid>
+      </Grid>
     </>
+
   );
 }
 
