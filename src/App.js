@@ -1,14 +1,14 @@
-import './App.scss';
 import Header from 'components/Header';
 import avatarImg from "./assets/images/avatar.jpg"
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import { Drawer } from '@mui/material';
 import Sidebar from 'components/Sidebar';
 import Logo from 'components/Logo';
+import Calendar from 'pages/calendar/Calendar';
+import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
 
@@ -26,17 +26,16 @@ export default function App() {
       </AppBar>
       <Drawer
         sx={{
-          width: `${drawerWidth}px)`,
+          width: drawerWidth,
           flexShrink: 0,
-          "& .MuiDrawer-paper": {
+          '& .MuiDrawer-paper': {
             width: drawerWidth,
-            boxSizing: "border-box",
+            boxSizing: 'border-box',
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        {/* <Toolbar /> */}
         <Logo />
         <Sidebar drawerWidth />
       </Drawer>
@@ -45,7 +44,8 @@ export default function App() {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
+        <Calendar />
       </Box>
-    </Box >
+    </Box>
   );
 }

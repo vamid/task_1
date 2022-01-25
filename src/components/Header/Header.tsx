@@ -9,7 +9,6 @@ export const Header: React.FC<IHeader> = ({ user }) => (
   <Grid className="header" container spacing={2}>
     <Grid item xs={4}>
       <SearchInput />
-      {console.log(user)}
     </Grid>
     <Grid item xs={4}></Grid>
     <Grid className="header-user" item xs={4}>
