@@ -9,8 +9,8 @@ import Sidebar from 'components/Sidebar';
 import Logo from 'components/Logo';
 import Calendar from 'pages/calendar/Calendar';
 import Toolbar from '@mui/material/Toolbar';
+import { DrawerWidth } from 'constants/constants';
 
-const drawerWidth = 240;
 
 export default function App() {
   return (
@@ -20,16 +20,16 @@ export default function App() {
         elevation={0}
         color="inherit"
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+        sx={{ width: `calc(100% - ${DrawerWidth}px)`, ml: `${DrawerWidth}px` }}
       >
         <Header user={{ img: avatarImg, firstName: "Zelto", lastName: "Olinbekov" }} />
       </AppBar>
       <Drawer
         sx={{
-          width: drawerWidth,
+          width: DrawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: drawerWidth,
+            width: DrawerWidth,
             boxSizing: 'border-box',
           },
         }}
@@ -37,7 +37,7 @@ export default function App() {
         anchor="left"
       >
         <Logo />
-        <Sidebar drawerWidth />
+        <Sidebar DrawerWidth />
       </Drawer>
       <Box
         component="main"

@@ -1,5 +1,5 @@
 import "./Scheduler.scss";
 
-export default function Scheduler() {
-  return <> asd </>
-}
+export const Scheduler = () => {
+  return <> asd </>;
+};
