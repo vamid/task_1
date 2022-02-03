@@ -1,0 +1,12 @@
+.calendar {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}
+#newSchedule-btn {
+  text-transform: none;
+  background-color: #5cc995;
+}
