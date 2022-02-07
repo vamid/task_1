@@ -12,11 +12,13 @@
       "noEmit": true,
       "jsx": "preserve",
       "baseUrl": "src",
-      "downlevelIteration": true
+      "downlevelIteration": true,
+      "typeRoots" : ["node_modules/@types"]
     },
     "include": [
       "src",
       "src/**/*",
+      "declarations.d.ts",
     ],
     "exclude": [
       "build",

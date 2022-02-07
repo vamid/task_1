@@ -1,22 +1,19 @@
-import { Button, Container } from "@mui/material";
-import React, { useState } from "react";
+import { Button, Container, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import TitlePage from "components/TitlePage";
 import "./Calendar.scss";
+import DatePicker from "@mui/lab/DatePicker";
 import Paper from "@mui/material/Paper";
 import {
   Appointments,
-  DateNavigator,
   DayView,
   Scheduler,
   Toolbar,
   WeekView,
 } from "@devexpress/dx-react-scheduler-material-ui";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { ViewState } from "@devexpress/dx-react-scheduler";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+import { LocalizationProvider } from "@mui/lab";
 
 const currentDate1 = "2021-11-01";
 const schedulerData = [
@@ -36,23 +33,9 @@ export default function Calendar() {
   const [currentDate, setCurrentDate] = useState<Date | null>(
     new Date("2021-11-01")
   );
-  const DatePicker = () => {
-    return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          value={currentDate}
-          onChange={(newDate) => setCurrentDate(newDate)}
-          disableToolbar
-          variant="inline"
-          format="MM/dd/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-        />
-        {console.log("here")}
-      </MuiPickersUtilsProvider>
-    );
-  };
-
+  useEffect(() => {
+    setCurrentDate(new Date());
+  }, [currentDate]);
   return (
     <Container>
       <section id="CalendarHeader" className="calendar-container">
@@ -70,7 +53,16 @@ export default function Calendar() {
             <WeekView startDayHour={8} endDayHour={15} />
             <Appointments />
             <Toolbar />
-            <DateNavigator openButtonComponent={DatePicker} />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+                label="Basic example"
+                value={currentDate}
+                onChange={(newValue) => {
+                  setCurrentDate(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </Scheduler>
         </Paper>
       </section>
