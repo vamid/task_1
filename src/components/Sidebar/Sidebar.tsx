@@ -7,8 +7,9 @@ import {
 } from "@mui/material";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import "./Sidebar.scss";
 
-export default function Sidebar() {
+export const Sidebar = () => {
   return (
     <List>
       {[
@@ -21,25 +22,17 @@ export default function Sidebar() {
       ].map((text, index) => (
         <ListItem button key={text}>
           <Grid container spacing={0}>
-            <Grid
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-around",
-              }}
-              item
-              xs={5}
-            >
-              <ListItemIcon style={{ justifyContent: "right" }}>
+            <Grid className="sidebar" item xs={5}>
+              <ListItemIcon className="sidebar-icon">
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
             </Grid>
-            <Grid style={{ display: "flex", alignItems: "center" }} item xs={7}>
-              <ListItemText style={{ width: "fit-content" }} primary={text} />
+            <Grid className="sidebar-list" item xs={7}>
+              <ListItemText className="sidebar-list-item" primary={text} />
             </Grid>
           </Grid>
         </ListItem>
       ))}
     </List>
   );
-}
+};

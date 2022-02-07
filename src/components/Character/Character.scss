@@ -1,5 +1,5 @@
 .character {
-  margin: 5px;
+  margin: 0.5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,6 +7,6 @@
   font-weight: bold;
 
   &-avatar {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 }

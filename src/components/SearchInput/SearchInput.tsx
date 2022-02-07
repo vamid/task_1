@@ -2,7 +2,7 @@ import { Box, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchInput.scss";
 
-export default function SearchInput() {
+export const SearchInput = () => {
   return (
     <Box sx={{ display: "flex", alignItems: "flex-end" }}>
       <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
@@ -13,4 +13,4 @@ export default function SearchInput() {
       />
     </Box>
   );
-}
+};
