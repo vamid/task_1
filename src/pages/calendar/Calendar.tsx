@@ -2,6 +2,7 @@ import TitlePage from "components/TitlePage";
 import "./Calendar.scss";
 import Paper from "@mui/material/Paper";
 import { Button, Container } from "@mui/material";
+import Scheduler from 'components/Scheduler';
 
 const currentDate = "2021-11-01";
 const schedulerData = [
@@ -27,7 +28,9 @@ export default function Calendar() {
         </Button>
       </section>
       <section id="CalendarBody">
-        <Paper></Paper>
+        <Paper>
+          <Scheduler />
+        </Paper>
       </section>
     </Container>
   );
