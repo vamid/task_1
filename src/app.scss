@@ -1,0 +1,8 @@
+$drawer-width: 240px;
+
+.appBar {
+  width: calc(100% - $drawer-width);
+  margin-left: $drawer-width;
+  position: fixed;
+
+}

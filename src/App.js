@@ -1,5 +1,4 @@
 import Header from 'components/Header';
-import avatarImg from "./assets/images/avatar.jpg"
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,7 +8,8 @@ import Sidebar from 'components/Sidebar';
 import Logo from 'components/Logo';
 import Calendar from 'pages/calendar/Calendar';
 import Toolbar from '@mui/material/Toolbar';
-import { DrawerWidth } from 'constants/constants';
+import { DrawerWidth } from 'constants/drawer';
+import "./app.scss";
 
 
 export default function App() {
@@ -19,10 +19,9 @@ export default function App() {
       <AppBar
         elevation={0}
         color="inherit"
-        position="fixed"
-        sx={{ width: `calc(100% - ${DrawerWidth}px)`, ml: `${DrawerWidth}px` }}
+        className="appBar"
       >
-        <Header user={{ img: avatarImg, firstName: "Zelto", lastName: "Olinbekov" }} />
+        <Header user={{ lastName: "Olinbekov" }} />
       </AppBar>
       <Drawer
         sx={{
@@ -37,7 +36,7 @@ export default function App() {
         anchor="left"
       >
         <Logo />
-        <Sidebar DrawerWidth />
+        <Sidebar />
       </Drawer>
       <Box
         component="main"

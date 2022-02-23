@@ -1,38 +1,34 @@
 import {
   Grid,
-  List,
-  ListItem,
   ListItemIcon,
   ListItemText,
+  MenuItem,
+  MenuList,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import "./Sidebar.scss";
+import { Icon } from "@mui/material";
+import { ISidebarMenuItem } from "./types";
+import { SidebarMenuItems } from "./constants";
 
 export const Sidebar = () => {
-  return (
-    <List>
-      {[
-        "Dashboard",
-        "Projects",
-        "Calendar",
-        "Tasks",
-        "Reports",
-        "Settings",
-      ].map((text, index) => (
-        <ListItem button key={text}>
-          <Grid container spacing={0}>
-            <Grid className="sidebar" item xs={5}>
-              <ListItemIcon className="sidebar-icon">
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-            </Grid>
-            <Grid className="sidebar-list" item xs={7}>
-              <ListItemText className="sidebar-list-item" primary={text} />
-            </Grid>
+  const renderMenuItem = ({ title, icon }: ISidebarMenuItem) => {
+    return (
+      <MenuItem key={title}>
+        <Grid container spacing={0}>
+          <Grid className="sidebar" item xs={5}>
+            <ListItemIcon className="sidebar-icon">
+              <Icon component={icon} />
+            </ListItemIcon>
           </Grid>
-        </ListItem>
-      ))}
-    </List>
-  );
+          <Grid className="sidebar-list" item xs={7}>
+            <ListItemText className="sidebar-list-item" primary={title} />
+          </Grid>
+        </Grid>
+      </MenuItem>
+    );
+  };
+
+  const renderMenuItems = () => SidebarMenuItems.map(renderMenuItem);
+
+  return <MenuList>{renderMenuItems()}</MenuList>;
 };
